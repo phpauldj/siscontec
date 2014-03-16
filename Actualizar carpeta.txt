@@ -1,0 +1,10 @@
+cd /J/Dropbox/UPC/Ciclo_VI/Modulo_2/Distribuidos/siscontec
+
+git add .
+
+git commit -m "Actualizacion de pantallas"
+
+git pull origin master
+
+git push origin master
+
