@@ -188,7 +188,7 @@ public class AdministradorDAO extends BaseDAO {
 		try {
 			String query = "select * from administrador where usuario=? and contrasena=?";
 			con = ConexionBD.obtenerConexion();
-			stmt = con.prepareStatement(query);
+			stmt = con.prepareStatement(query);			
 			stmt.setString(1, usuario);
 			stmt.setString(2, pass);
 			rs = stmt.executeQuery();

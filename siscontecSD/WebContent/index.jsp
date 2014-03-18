@@ -12,6 +12,7 @@
 
 
 <%
+	response.sendRedirect("NuevaConsulta.jsp");
 	HttpSession sesion = request.getSession();
 	Administrador admi = (Administrador)sesion.getAttribute("ADMIN");
 	
