@@ -2,10 +2,10 @@ package siscontec.servlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collection;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,7 +18,7 @@ import siscontec.negocio.GestionAdministradores;
 /**
  * Servlet implementation class LoginAdminServlet
  */
-@WebServlet("/sisadm/LoginAdminServlet")
+@WebServlet("LoginAdminServlet")
 public class LoginAdminServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -42,7 +42,6 @@ public class LoginAdminServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
 		String usuario = request.getParameter("txtUsuario");
 		String password = request.getParameter("txtContrasena");
 		
@@ -73,15 +72,4 @@ public class LoginAdminServlet extends HttpServlet {
 		rd.forward(request, response);
 	}
 
-	protected void cargarDataReservaCliente(HttpServletRequest request) throws DAOExcepcion{
-		/*GestionLocales negocioL = new GestionLocales();
-		Collection<Local> locales = negocioL.listar();
-		
-		request.setAttribute("LOCALES", locales);
-		
-		GestionReserva negocioR = new GestionReserva();
-		Collection<Reserva> reservasCli = negocioR.listByCodNomSalaReservaByIdCliente(c.getIdcliente(), "", "");
-		
-		request.setAttribute("RESERVAS", reservasCli);*/
-	}
 }
