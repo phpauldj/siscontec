@@ -54,6 +54,7 @@ select * from Tm_TipoSolicitante
 
 insert into Tm_Entidad values
 ('Entidad 1',0,0,0,'U01','U01')
+select * from Tm_Entidad
 
 insert into Tm_MotivoNoAtencion values
 ('Motivo No Atencion 1',0,0,0,'U01','U01')
