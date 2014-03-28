@@ -9,7 +9,7 @@ package siscontec.modelo;
  */
 public class TipoSolicitante {
 
-	private int Id_Solicitante;
+	private int Id_TipoSolicitante;
 	private String Descripcion;
 	private int FechaHoraRegistro;
 	private int FechaHoraModificacion;
@@ -21,10 +21,10 @@ public class TipoSolicitante {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public TipoSolicitante(int id_Solicitante, String descripcion,
+	public TipoSolicitante(int id_TipoSolicitante, String descripcion,
 			int fechaHoraRegistro, int fechaHoraModificacion, int eliminado,
 			String usuarioRegistro, String usuarioModificacion) {
-		Id_Solicitante = id_Solicitante;
+		Id_TipoSolicitante = id_TipoSolicitante;
 		Descripcion = descripcion;
 		FechaHoraRegistro = fechaHoraRegistro;
 		FechaHoraModificacion = fechaHoraModificacion;
@@ -32,11 +32,13 @@ public class TipoSolicitante {
 		UsuarioRegistro = usuarioRegistro;
 		UsuarioModificacion = usuarioModificacion;
 	}
-	public int getId_Solicitante() {
-		return Id_Solicitante;
+
+	public void setId_TipoSolicitante(int id_TipoSolicitante) {
+		Id_TipoSolicitante = id_TipoSolicitante;
 	}
-	public void setId_Solicitante(int id_Solicitante) {
-		Id_Solicitante = id_Solicitante;
+
+	public int getId_TipoSolicitante() {
+		return Id_TipoSolicitante;
 	}
 	public String getDescripcion() {
 		return Descripcion;

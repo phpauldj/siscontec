@@ -47,4 +47,10 @@ public class DateFormat {
 		}
 		return result;
 	}
+	
+	public static String getCurrentDateTime(){
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		Date date = new Date();
+		return dateFormat.format(date);
+	}
 }

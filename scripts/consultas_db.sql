@@ -73,6 +73,7 @@ insert into Tm_Prioridad values
 ('Alta',0,0,'U01',0,'U01'),
 ('Media',0,0,'U01',0,'U01'),
 ('Baja',0,0,'U01',0,'U01')
+select * from Tm_Prioridad
 
 insert into Tm_MotivoObservacion values
 ('Observacion 1',0,0,0,'U01','U01',1)
@@ -88,3 +89,15 @@ insert into Tt_ConsultaTecnica values
 'C0001DIG','pacharly89@gmail.com',4,6,0,0,'U01',0,'U01',0,1,'1234',1,1,0,1,1,1,2,2,'U02',
 'Es la primera consulta técnica registrada para prueba',0,0,0,0,'45816432','10458164326',null)
 select * from Tt_ConsultaTecnica
+
+insert into Tt_ConsultaTecnica(
+Institucion, Area, Apellidos, Nombres, Telefono, Fax, Id_Tipo, Email, Id_TipoSolicitante,
+Id_MotivoConsulta, Id_TipoInstitucion, Id_MedioConsulta, Id_Clasificacion, Descripcion, DNI, RUC, 
+FechaHoraRegistro,Flg_Origen, Id_EstadoCT, Id_Prioridad) values
+(
+'Example 2','Area de Gestion','Casas Valerio','Susana','2603695','213-4556432',1,'pauldj_9@hotmail.com',4,
+6,1,1,1,'Un ejemplo para de prueba','23456789','10342873849',0,0,1,2
+)
+select Institucion, Area, Apellidos, Nombres, Telefono, Fax, Id_Tipo, Email, Id_TipoSolicitante,
+Id_MotivoConsulta, Id_TipoInstitucion, Id_MedioConsulta, Id_Clasificacion, Descripcion, DNI, 
+RUC, FechaHoraRegistro, Flg_Origen, Id_EstadoCT,Id_Prioridad from Tt_ConsultaTecnica

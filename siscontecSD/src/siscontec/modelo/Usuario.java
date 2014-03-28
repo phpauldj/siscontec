@@ -16,7 +16,7 @@ public class Usuario {
 	private int FechaHoraModificacion;
 	private int Eliminado;
 	private int Area;
-	private String login;
+	private String Login;
 	private String Email;
 	private String UsuarioRegistro;
 	private String UsuarioModificacion;
@@ -36,7 +36,7 @@ public class Usuario {
 		FechaHoraModificacion = fechaHoraModificacion;
 		Eliminado = eliminado;
 		Area = area;
-		this.login = login;
+		this.Login = login;
 		Email = email;
 		UsuarioRegistro = usuarioRegistro;
 		UsuarioModificacion = usuarioModificacion;
@@ -84,10 +84,10 @@ public class Usuario {
 		Area = area;
 	}
 	public String getLogin() {
-		return login;
+		return Login;
 	}
 	public void setLogin(String login) {
-		this.login = login;
+		this.Login = login;
 	}
 	public String getEmail() {
 		return Email;

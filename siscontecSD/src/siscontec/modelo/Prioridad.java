@@ -9,7 +9,7 @@ package siscontec.modelo;
  */
 public class Prioridad {
 	
-	private int Id_Clasificacion;
+	private int Id_Prioridad;
 	private String Descripcion;
 	private int Eliminado;
 	private int FechaHoraRegistro;
@@ -21,10 +21,10 @@ public class Prioridad {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Prioridad(int id_Clasificacion, String descripcion, int eliminado,
+	public Prioridad(int id_Prioridad, String descripcion, int eliminado,
 			int fechaHoraRegistro, int fechaHoraModificacion,
 			String usuarioRegistro, String usuarioModificacion) {
-		Id_Clasificacion = id_Clasificacion;
+		Id_Prioridad = id_Prioridad;
 		Descripcion = descripcion;
 		Eliminado = eliminado;
 		FechaHoraRegistro = fechaHoraRegistro;
@@ -35,11 +35,11 @@ public class Prioridad {
 
 
 
-	public int getId_Clasificacion() {
-		return Id_Clasificacion;
+	public int getId_Prioridad() {
+		return Id_Prioridad;
 	}
-	public void setId_Clasificacion(int id_Clasificacion) {
-		Id_Clasificacion = id_Clasificacion;
+	public void setId_Prioridad(int id_Prioridad) {
+		Id_Prioridad = id_Prioridad;
 	}
 	public String getDescripcion() {
 		return Descripcion;
