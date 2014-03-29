@@ -21,7 +21,7 @@ public class GestionConsultasTecnicas {
 
 	public ConsultaTecnica registrarConsultaTecnica(Clasificacion clasificacion, Tipo tipo, MotivoConsulta motivo, TipoInstitucion tipoInsti,
 			String institucion, String area, TipoSolicitante tipoSoli, String apellidos, String nombres, String dni, String ruc, String telefono,
-			String fax, String email, MedioConsulta medio)
+			String fax, String email, MedioConsulta medio, String descripcion)
 			throws DAOExcepcion {
 		ConsultaTecnicaDAO dao = new ConsultaTecnicaDAO();
 		
@@ -41,6 +41,7 @@ public class GestionConsultasTecnicas {
 		ad.setFax(fax);
 		ad.setEmail(email);
 		ad.setId_MedioConsulta(medio);
+		ad.setDescripcion(descripcion);
 		
 		return dao.registrarConsultaTecnica(ad); 
 	}

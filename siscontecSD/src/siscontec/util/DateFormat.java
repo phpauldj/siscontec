@@ -51,6 +51,16 @@ public class DateFormat {
 	public static String getCurrentDateTime(){
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Date date = new Date();
+		
+		//DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		//Calendar cal = Calendar.getInstance();
+		//System.out.println(dateFormat.format(cal.getTime()));
+		
 		return dateFormat.format(date);
+	}
+	
+	public static Date getNow(){
+		Date date = new Date();
+		return date;
 	}
 }

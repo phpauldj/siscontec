@@ -15,7 +15,7 @@ public class ConexionBD {
 			
 			if(motorDB.equals("sql")){
 				Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-	            String url = "jdbc:sqlserver://localhost;databaseName=siscontecExa;user=sa;password=sa;";
+	            String url = "jdbc:sqlserver://localhost;databaseName=trabajo;user=sa;password=sa;";
 	            con = DriverManager.getConnection(url);
 			} else {			
 				Class.forName("com.mysql.jdbc.Driver");

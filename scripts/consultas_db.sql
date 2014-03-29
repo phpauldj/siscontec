@@ -6,7 +6,7 @@ insert into Tm_Clasificacion values
 ('Aduana',0,0,0,'U01','U01'),
 ('Cenadim',0,0,0,'U01','U01'),
 ('Productos Controlados',0,0,0,'U01','U01')
-select * from Tm_Clasificacion
+select * from Tm_Clasificacion where Id_Clasificacion= 1
 
 insert into Tm_Tipo values
 (0,0,0,'U01','U01',1,'Productos Farmaceuticos')
@@ -101,3 +101,4 @@ FechaHoraRegistro,Flg_Origen, Id_EstadoCT, Id_Prioridad) values
 select Institucion, Area, Apellidos, Nombres, Telefono, Fax, Id_Tipo, Email, Id_TipoSolicitante,
 Id_MotivoConsulta, Id_TipoInstitucion, Id_MedioConsulta, Id_Clasificacion, Descripcion, DNI, 
 RUC, FechaHoraRegistro, Flg_Origen, Id_EstadoCT,Id_Prioridad from Tt_ConsultaTecnica
+

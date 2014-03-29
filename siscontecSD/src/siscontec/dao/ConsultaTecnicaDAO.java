@@ -146,15 +146,16 @@ public class ConsultaTecnicaDAO extends BaseDAO {
 			stmt.setString(15, ct.getDNI());
 			stmt.setString(16, ct.getRUC());
 			
-			int output = Integer.valueOf(DateFormat.getCurrentDateTime());
-			stmt.setInt(17, output);
+			long output = Long.valueOf(DateFormat.getNow().getTime()/1000).intValue();
+			
+			stmt.setLong(17, output);
 			int i = stmt.executeUpdate();
 			if (i != 1) {
 				throw new SQLException("No se pudo insertar");
 			}
 			// Obtener el ultimo id
 			int id = 0;
-			query = "select last_insert_id()";
+			query = "select scope_identity()";
 			stmt = con.prepareStatement(query);
 			rs = stmt.executeQuery();
 			if (rs.next()) {
