@@ -10,6 +10,15 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
+    <servlet-name>ServletAdaptor</servlet-name>
+    <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletAdaptor</servlet-name>
+    <url-pattern>/digemid/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <description></description>
     <display-name>LoginAdminServlet</display-name>
     <servlet-name>LoginAdminServlet</servlet-name>
@@ -18,5 +27,15 @@
   <servlet-mapping>
     <servlet-name>LoginAdminServlet</servlet-name>
     <url-pattern>/LoginAdminServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ConsultaTecnicaServlet</display-name>
+    <servlet-name>ConsultaTecnicaServlet</servlet-name>
+    <servlet-class>siscontec.servlet.ConsultaTecnicaServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ConsultaTecnicaServlet</servlet-name>
+    <url-pattern>/ConsultaTecnicaServlet</url-pattern>
   </servlet-mapping>
 </web-app>

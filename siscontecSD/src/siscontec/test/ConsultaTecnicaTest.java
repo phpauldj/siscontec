@@ -60,7 +60,7 @@ public class ConsultaTecnicaTest {
 					);
 			
 			Assert.assertNotNull(objc);
-			System.out.println("Se insertó la consulta técnica con id: " + objc.getId_ConsultaTecnica());
+			System.out.println("Se insertó la consulta técnica con codigo: " + objc.getId_ConsultaTecnica());
 		} catch (DAOExcepcion e) {
 			// TODO Auto-generated catch block
 			Assert.fail("Fallo el registro: " + e.getMessage());

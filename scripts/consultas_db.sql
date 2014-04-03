@@ -98,7 +98,9 @@ FechaHoraRegistro,Flg_Origen, Id_EstadoCT, Id_Prioridad) values
 'Example 2','Area de Gestion','Casas Valerio','Susana','2603695','213-4556432',1,'pauldj_9@hotmail.com',4,
 6,1,1,1,'Un ejemplo para de prueba','23456789','10342873849',0,0,1,2
 )
-select Institucion, Area, Apellidos, Nombres, Telefono, Fax, Id_Tipo, Email, Id_TipoSolicitante,
+SELECT SCOPE_IDENTITY()
+select Id_ConsultaTecnica,Institucion, Area, Apellidos, Nombres, Telefono, Fax, Id_Tipo, Email, Id_TipoSolicitante,
 Id_MotivoConsulta, Id_TipoInstitucion, Id_MedioConsulta, Id_Clasificacion, Descripcion, DNI, 
 RUC, FechaHoraRegistro, Flg_Origen, Id_EstadoCT,Id_Prioridad from Tt_ConsultaTecnica
 
+select * from Tt_ConsultaTecnica
