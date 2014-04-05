@@ -46,6 +46,12 @@ public class GestionConsultasTecnicas {
 		return dao.registrarConsultaTecnica(ad); 
 	}
 	
+	public ConsultaTecnica registrarConsultaTecnica(ConsultaTecnica ad)
+			throws DAOExcepcion {
+		ConsultaTecnicaDAO dao = new ConsultaTecnicaDAO();
+		return dao.registrarConsultaTecnica(ad); 
+	}
+	
 	public ConsultaTecnica obtener(int id) throws DAOExcepcion {
 		ConsultaTecnicaDAO dao = new ConsultaTecnicaDAO();
 		return dao.obtener(id);

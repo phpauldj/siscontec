@@ -30,7 +30,7 @@ import siscontec.negocio.GestionTiposSolicitante;
 @SuppressWarnings("deprecation")
 public class ConsultaTecnicaTest {
 
-	@Test
+	//@Test
 	public void RegistrarNuevaConsultaTecnicaTest(){
 		GestionConsultasTecnicas negocioConsTecnicas = new GestionConsultasTecnicas();
 		
@@ -65,6 +65,24 @@ public class ConsultaTecnicaTest {
 			// TODO Auto-generated catch block
 			Assert.fail("Fallo el registro: " + e.getMessage());
 		}
+		
+	}
+	
+	@Test
+	public void obtenerConsultaTecnicaTest(){
+		GestionConsultasTecnicas negocioConsulTecnicas = new GestionConsultasTecnicas();
+		ConsultaTecnica objCT = null;
+		try {
+			objCT = negocioConsulTecnicas.obtener(3);
+			
+			Assert.assertNotNull(objCT);
+			System.out.println("Se obtuvo la consulta técnica : "+ objCT.getId_ConsultaTecnica() + " \nDatos :"+objCT.getId_Clasificacion().getDescripcion());
+		} catch (DAOExcepcion e) {
+			// TODO Auto-generated catch block
+			//e.printStackTrace();
+			Assert.fail("Fallo en la consulta :" + e.getMessage());
+		}
+		
 		
 	}
 }
