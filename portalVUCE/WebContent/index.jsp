@@ -18,24 +18,22 @@
 		response.sendRedirect("ListadoConsultas.jsp");
 	}
 	%>
-		<form action="LoginUserServlet" method="post">
+		<!-- <form action="LoginUserServlet" method="post"> -->
+		<form action="<%=request.getContextPath() %>/ValidarUsuario" method="post">
 	        <table width="20%" align="center" border="1">
 	            <tr>
 	                <td align="right">RUC</td>
-	                <td><input id="txtRuc"></td>
+	                <td><input type="text" value="" name="ruc" /></td>
 	            </tr>
 	            <tr>
 	                <td align="right">USUARIO</td>
-	                <td><input id="txtUsuario"></td>
+	                <td><input type="text" value="" name="usuario" /></td>
 	            </tr>
 	            <tr>
 	                <td align="right">CLAVE</td>
-	                 <td><input id="txtClave"></td>
+	                 <td><input type="password" value="" name="clave" /></td>
 	            </tr>
-	            <tr align="center">
-	                <td colspan="2"><button>Iniciar Sesión</button></td>
-	            </tr>
-	            <tr align="center">
+	            <tr>
 	                <td colspan="2">
 		            <%
 	      			ArrayList<String> errors = (ArrayList<String>)request.getAttribute("ERRORS");
@@ -57,6 +55,9 @@
 	      			}
 				    %>
 			    	</td>
+			    </tr>
+			    <tr>
+	                <td colspan="2" align="center"><input type="submit" value="INGRESAR" name="btn" /></td>
 	            </tr>
 	        </table>
 	   	</form>
