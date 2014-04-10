@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:21424/servidorSunat/validaRUC?WSDL" uri="wsdl/localhost_21424/servidorSunat/validaRUC.wsdl"/>
+    <system systemId="http://localhost:21424/servidorSunat/validaRUC?xsd=1" uri="wsdl/localhost_21424/servidorSunat/validaRUC.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/servidorSunat/validaRUC?WSDL" uri="wsdl/localhost_8080/servidorSunat/validaRUC.wsdl"/>
+    <system systemId="http://localhost:8080/servidorSunat/validaRUC?xsd=1" uri="wsdl/localhost_8080/servidorSunat/validaRUC.xsd_1.xsd"/>
+</catalog>
+
+
