@@ -19,7 +19,7 @@ public class ConexionBD {
 	            con = DriverManager.getConnection(url);
 			} else {			
 				Class.forName("com.mysql.jdbc.Driver");
-				con = DriverManager.getConnection("jdbc:mysql://localhost/siscontecExa",
+				con = DriverManager.getConnection("jdbc:mysql://localhost/trabajo",
 						"root", "root");
 			}
 		} catch (ClassNotFoundException e) {

@@ -3,9 +3,8 @@
  */
 package Test;
 
-import java.rmi.RemoteException;
-
 import edu.upc.sunat.Persona;
+import edu.upc.sunat.ValidaRUCProxy;
 import edu.upc.sunat.ValidaRUC_PortType;
 
 /**
@@ -21,10 +20,16 @@ public class TestVUCEWebService {
 		// TODO Auto-generated method stub
 		
 		try {
-			ValidaRUC_PortType validar = new ValidaRUC_PortType();
-			String respuesta= validar.consultaRuc(ruc, usuario, clave);
+			ValidaRUC_PortType validar = new ValidaRUCProxy();
+			Persona persona = validar.consultaRuc("10458164326", "", "");
+			if(persona!=null){
+				System.out.println("BIENVENIDO : "+persona.getNombre()+" "+persona.getApellido());
+			} else {
+				System.out.println("Persona no encontrada");
+			}
 		} catch (Exception e) {
 			// TODO: handle exception
+			System.out.println(e.getMessage());
 		}
 
 	}

@@ -19,4 +19,14 @@
     <servlet-name>ConsultaTecnicaServlet</servlet-name>
     <url-pattern>/ConsultaTecnicaServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LoginUserServlet</display-name>
+    <servlet-name>LoginUserServlet</servlet-name>
+    <servlet-class>vuce.servlet.LoginUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginUserServlet</servlet-name>
+    <url-pattern>/LoginUserServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

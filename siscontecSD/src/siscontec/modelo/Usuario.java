@@ -20,7 +20,16 @@ public class Usuario {
 	private String Email;
 	private String UsuarioRegistro;
 	private String UsuarioModificacion;
+	private String Contrasenia;
 	
+	public String getContrasenia() {
+		return Contrasenia;
+	}
+
+	public void setContrasenia(String contrasenia) {
+		Contrasenia = contrasenia;
+	}
+
 	public Usuario() {
 		// TODO Auto-generated constructor stub
 	}

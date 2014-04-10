@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@page import="java.util.ArrayList,vuce.modelo.Administrador"%>
+<%@page import="java.util.ArrayList,vuce.modelo.Usuario"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,19 +8,17 @@
 <title>DIGEMID</title>
 </head>
 <body>
-<h1>Bienvenido, ingrese con su Clave SOL</h1>
-
+<center><h1>PORTAL VUCE, Ingrese con su Clave SOL:</h1></center>
 
 <%
-	//response.sendRedirect("NuevaConsulta.jsp");
 	HttpSession sesion = request.getSession();
-	Administrador admi = (Administrador)sesion.getAttribute("ADMIN");
+	Usuario admi = (Usuario)sesion.getAttribute("SOLICITANTE");
 	
 	if(admi!=null){
 		response.sendRedirect("ListadoConsultas.jsp");
 	}
 	%>
-		<form action="LoginAdminServlet" method="post">
+		<form action="LoginUserServlet" method="post">
 	        <table width="20%" align="center" border="1">
 	            <tr>
 	                <td align="right">RUC</td>
@@ -52,9 +50,9 @@
 	      			
 	      			if(flagerror){
 	      			%>
-	      			<div>
-				        <strong>!Error</strong>&nbsp;&nbsp;&nbsp;Correo Electrónico o Contraseña Inválido.
-				      </div>
+	      				<div style="color: red;">
+					        <strong>!Error!</strong>&nbsp;Correo Electrónico o Contraseña Inválida.
+				      	</div>
 				    <% 
 	      			}
 				    %>

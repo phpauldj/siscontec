@@ -28,7 +28,7 @@
 					objc.getNombres() + " " + objc.getApellidos();
 		}
     %>
-    <%=clasi %>
+    <%=clasi %> - <%=tipo %>
     <h1>PORTAL VUCE</h1>
     <h2>Consulta Técnica</h2>
     <form action="ConsultaTecnicaServlet" method="post">

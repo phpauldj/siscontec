@@ -20,9 +20,18 @@ public class Usuario {
 	private String Email;
 	private String UsuarioRegistro;
 	private String UsuarioModificacion;
-	
+	private String Contrasenia;
+
 	public Usuario() {
 		// TODO Auto-generated constructor stub
+		this.Id_Usuario = "";
+		this.Apellidos = "";
+		this.Nombres = "";
+		this.Login = "";
+		this.Email = "";
+		this.UsuarioRegistro = "";
+		this.UsuarioModificacion = "";
+		this.Contrasenia = "";
 	}
 	
 	public Usuario(String id_Usuario, String apellidos, String nombres,
@@ -108,4 +117,11 @@ public class Usuario {
 		UsuarioModificacion = usuarioModificacion;
 	}
 	
+	public String getContrasenia() {
+		return Contrasenia;
+	}
+
+	public void setContrasenia(String contrasenia) {
+		Contrasenia = contrasenia;
+	}
 }
