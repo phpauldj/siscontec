@@ -8,11 +8,11 @@
 <title>DIGEMID</title>
 </head>
 <body>
-<h1>DIGEMID!!</h1>
+<h1>Bienvenido, ingrese con su Clave SOL</h1>
 
 
 <%
-	response.sendRedirect("NuevaConsulta.jsp");
+	//response.sendRedirect("NuevaConsulta.jsp");
 	HttpSession sesion = request.getSession();
 	Administrador admi = (Administrador)sesion.getAttribute("ADMIN");
 	
@@ -22,19 +22,20 @@
 	%>
 		<form action="LoginAdminServlet" method="post">
 	        <table width="20%" align="center" border="1">
-	            <tr align="center">
-	                <td colspan="2">ACCESSO AL SISTEMA</td>
+	            <tr>
+	                <td align="right">RUC</td>
+	                <td><input id="txtRuc"></td>
 	            </tr>
 	            <tr>
 	                <td align="right">USUARIO</td>
 	                <td><input id="txtUsuario"></td>
 	            </tr>
 	            <tr>
-	                <td align="right">CONTRASE&Ntilde;A</td>
-	                 <td><input id="txtContrasena"></td>
+	                <td align="right">CLAVE</td>
+	                 <td><input id="txtClave"></td>
 	            </tr>
 	            <tr align="center">
-	                <td colspan="2"><button>Ingresar</button></td>
+	                <td colspan="2"><button>Iniciar Sesión</button></td>
 	            </tr>
 	            <tr align="center">
 	                <td colspan="2">
