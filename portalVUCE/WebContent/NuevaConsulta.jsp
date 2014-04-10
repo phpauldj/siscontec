@@ -5,12 +5,12 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="java.util.ArrayList"%>
+<%@page import="vuce.modelo.ConsultaTecnica,java.util.ArrayList"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Nueva Consulta</title>
+        <title>VUCE - Nueva Consulta</title>
     </head>
     <body>
     <%
@@ -20,17 +20,26 @@
 			clasi = vals.get(0);
 			tipo = vals.get(1);
 		}
+		
+		ConsultaTecnica objc = (ConsultaTecnica)request.getAttribute("TECNICA");
+		String mensaje = "No se registro la Consulta Técnica";
+		if(objc!=null){
+			mensaje = "Consulta Técnica ha sido Registrada [" + objc.getId_ConsultaTecnica() + "] por: " + 
+					objc.getNombres() + " " + objc.getApellidos();
+		}
     %>
     <%=clasi %>
+    <h1>PORTAL VUCE</h1>
+    <h2>Consulta Técnica</h2>
     <form action="ConsultaTecnicaServlet" method="post">
-    <table>
+    <table border="1">
     <tr>
-    <td colspan="2">DATOS GENERALES</td>
+    <td colspan="4">DATOS GENERALES</td>
     </tr>
-    <tr><td></td></tr>
+    <tr><td colspan="4">--------------------------------------------------------------------------------------------</td></tr>
     <tr>
     <td>Clasificación</td>
-    <td colspan="2">
+    <td colspan="3">
       <select name="cmbClasificacion" id="cmbClasificacion">
         <option value="0">Seleccionar</option>
         <option value="1">Productos Farmaceuticos</option>
@@ -40,21 +49,21 @@
         <option value="5">Aduana</option>
         <option value="6">Cenadim</option>
         <option value="7">Productos Controlados</option>
-      </select>
+      </select>&nbsp;&nbsp;&nbsp;<span style="color: red;">(*)</span>
     </td>
     </tr>
 	<tr>
     <td>Tipo</td>
-    <td colspan="2">
+    <td colspan="3">
       <select name="cmbTipo" id="cmbTipo">
         <option value="0">Seleccionar</option>
         <option value="1">Productos Farmaceuticos</option>
-      </select>
+      </select>&nbsp;&nbsp;&nbsp;<span style="color: red;">(*)</span>
     </td>
     </tr>
     <tr>
     <td>Motivo de Consulta</td>
-    <td colspan="2">
+    <td colspan="3">
       <select name="cmbMotivo" id="cmbMotivo">
         <option value="0">Seleccionar</option>
         <option value="1">Toma de desiciones</option>
@@ -68,13 +77,13 @@
         <option value="9">Sobre normativa relacionada</option>
         <option value="10">Desaduanaje</option>
         <option value="11">Otros</option>
-      </select>
+      </select>&nbsp;&nbsp;&nbsp;<span style="color: red;">(*)</span>
     </td>
     </tr>
     <tr>
     <td>Tipo de Institución/Empresa</td>
-    <td colspan="2">
-      <select name="cmbMotivo" id="cmbMotivo">
+    <td colspan="3">
+      <select name="cmbTipoInstitucion" id="cmbTipoInstitucion">
         <option value="0">Seleccionar</option>
         <option value="1">DIGEMID</option>
         <option value="2">ESSALUD</option>
@@ -89,20 +98,20 @@
         <option value="11">UNIVERSIDAD / INSTITUTO</option>
         <option value="12">OTROS</option>
         <option value="13">ADUANA-MARITIMA/AEREA/POSTAL/INTA</option>
-      </select>
+      </select>&nbsp;&nbsp;&nbsp;<span style="color: red;">(*)</span>
     </td>
     </tr>
     <tr>
     <td>Institución</td>
-    <td colspan="2"><input name="txtTipoInstitucion" type="text" id="txtTipoInstitucion" size="80"></td>
+    <td colspan="3"><input name="txtInstitucion" type="text" id="txtInstitucion" size="80">&nbsp;&nbsp;&nbsp;<span style="color: red;">(*)</span></td>
     </tr>
     <tr>
     <td>Area o Dpto.</td>
-    <td colspan="2"><input name="txtArea" type="text" id="txtArea" size="80"></td>
+    <td colspan="3"><input name="txtArea" type="text" id="txtArea" size="80"></td>
     </tr>
     <tr>
     <td>Tipo Solicitante</td>
-    <td colspan="2"><select name="cmbTipoSolicitante" id="cmbTipoSolicitante">
+    <td colspan="3"><select name="cmbTipoSolicitante" id="cmbTipoSolicitante">
         <option value="0">Seleccionar</option>
         <option value="1">QUIMICO FARMACEUTICO</option>
         <option value="2">MÉDICO</option>
@@ -111,19 +120,20 @@
         <option value="5">PACIENTE</option>
         <option value="6">OTROS PROFESIONALES DE LA SALUD</option>
         <option value="7">REPRESENTANTE LEGAL</option>
-      </select>
+      </select>&nbsp;&nbsp;&nbsp;<span style="color: red;">(*)</span>
     </td>
     </tr>
     <tr>
-    <td>Apellidos y Nombres</td>
-    <td><input name="txtApellidos" type="text" id="txtApellidos" size="40"></td>
+    <td>Nombres</td>
     <td><input name="txtNombres" type="text" id="txtNombres" size="40"></td>
+    <td>Apellidos</td>
+    <td><input name="txtApellidos" type="text" id="txtApellidos" size="40">&nbsp;&nbsp;&nbsp;<span style="color: red;">(*)</span></td>
     </tr>
     <tr>
     <td>DNI</td>
-    <td><input name="txtDNI" type="text" id="txtDNI" size="30"></td>
+    <td><input name="txtDNI" type="text" id="txtDNI" size="30">&nbsp;&nbsp;&nbsp;<span style="color: red;">(*)</span></td>
     <td>RUC</td>
-    <td><input name="txtRUC" type="text" id="txtRUC" size="30"></td>
+    <td><input name="txtRUC" type="text" id="txtRUC" size="30">&nbsp;&nbsp;&nbsp;<span style="color: red;">(*)</span></td>
     </tr>
     <tr>
     <td>Teléfono</td>
@@ -133,18 +143,22 @@
     </tr>
     <tr>
     <td>Email</td>
-    <td colspan="2"><input name="txtEmail" type="text" id="txtEmail" size="80"></td>
+    <td colspan="3"><input name="txtEmail" type="text" id="txtEmail" size="80"></td>
     </tr>
     <tr>
     <td>Medio de Consulta</td>
-    <td colspan="2"><input name="txtMedioConsulta" type="text" id="txtMedioConsulta" size="80"></td>
+    <td colspan="3"><select name="cmbMedioConsulta" id="cmbMedioConsulta">
+        <option value="0">Seleccionar</option>
+        <option value="1">VIA WEB</option>
+      </select>&nbsp;&nbsp;&nbsp;<span style="color: red;">(*)</span>
+    </td>
     </tr>
     <tr>
     <td>Descripción de la Consulta</td>
-    <td colspan="2"><textarea name="txtDescripcionConsulta" cols="80" id="txtDescripcionConsulta"></textarea></td>
+    <td colspan="3"><textarea name="txtDescripcionConsulta" cols="80" id="txtDescripcionConsulta"></textarea></td>
     </tr>
-    <tr><td colspan="3">
-      <input type="submit" name="btnGrabar" id="btnGrabar" value="Grabar">
+    <tr><td colspan="4">
+      <input type="submit" name="btnGrabar" id="btnGrabar" value="GRABAR" style="width: 150px;height: 30px;">&nbsp;&nbsp;&nbsp;<span style="color: red;">(*)</span>
     </td></tr>
     </table>
     </form>
