@@ -10,55 +10,22 @@
 <body>
 <h1>Bienvenido, ingrese con su Clave SOL</h1>
 
-
-<%
-	//response.sendRedirect("NuevaConsulta.jsp");
-	HttpSession sesion = request.getSession();
-	Administrador admi = (Administrador)sesion.getAttribute("ADMIN");
-	
-	if(admi!=null){
-		response.sendRedirect("ListadoConsultas.jsp");
-	}
-	%>
-		<form action="LoginAdminServlet" method="post">
+		<form action="<%=request.getContextPath() %>/ValidarUsuario" method="post">
 	        <table width="20%" align="center" border="1">
 	            <tr>
 	                <td align="right">RUC</td>
-	                <td><input id="txtRuc"></td>
+	                <td><input type="text" value="" name="ruc" /></td>
 	            </tr>
 	            <tr>
 	                <td align="right">USUARIO</td>
-	                <td><input id="txtUsuario"></td>
+	                <td><input type="text" value="" name="usuario" /></td>
 	            </tr>
 	            <tr>
 	                <td align="right">CLAVE</td>
-	                 <td><input id="txtClave"></td>
+	                 <td><input type="password" value="" name="clave" /></td>
 	            </tr>
 	            <tr align="center">
-	                <td colspan="2"><button>Iniciar Sesión</button></td>
-	            </tr>
-	            <tr align="center">
-	                <td colspan="2">
-		            <%
-	      			ArrayList<String> errors = (ArrayList<String>)request.getAttribute("ERRORS");
-	      			boolean flagerror = false;
-	      			String classerror = "";
-	      				
-	      			if(errors!=null){
-	      				if(errors.size()>=1){
-	      					flagerror = true;
-	      				}
-	      			}
-	      			
-	      			if(flagerror){
-	      			%>
-	      			<div>
-				        <strong>!Error</strong>&nbsp;&nbsp;&nbsp;Correo Electrónico o Contraseña Inválido.
-				      </div>
-				    <% 
-	      			}
-				    %>
-			    	</td>
+	                <td colspan="2"><input type="submit" value="Iniciar Sesión" name="btn" /></td>
 	            </tr>
 	        </table>
 	   	</form>
