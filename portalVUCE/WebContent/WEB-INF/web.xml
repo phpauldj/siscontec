@@ -9,4 +9,14 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>ConsultaTecnicaServlet</display-name>
+    <servlet-name>ConsultaTecnicaServlet</servlet-name>
+    <servlet-class>vuce.servlet.ConsultaTecnicaServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ConsultaTecnicaServlet</servlet-name>
+    <url-pattern>/ConsultaTecnicaServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -30,6 +30,54 @@ import com.google.gson.Gson;
  */
 public class ConsultasTecnicasRest {
 
+	public ConsultaTecnica registrarCTRest(ConsultaTecnica ct) throws ClientProtocolException, IOException{
+		DefaultHttpClient httpClient = new DefaultHttpClient();
+		HttpPost post = new HttpPost(
+				"http://localhost:8080/siscontecSD/digemid/rest/registrar-consulta");
+		
+		Gson gson = new Gson();
+		ConsultaTecnica oct = null;
+		
+		String input = gson.toJson(ct);
+		System.out.println("ENVIA ->" + input);
+		
+		try {
+			
+			StringEntity inputJson = new StringEntity(input);
+			inputJson.setContentType("application/json");
+			post.setEntity(inputJson);
+
+			HttpResponse response = httpClient.execute(post);
+
+			if (response.getStatusLine().getStatusCode() != 200) {
+
+				throw new RuntimeException("ERROR HTTP ->"
+						+ response.getStatusLine().getStatusCode());
+
+			}
+			
+			BufferedReader br = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+			String mensajeRetorno = "";
+			StringBuilder  retornoJson =new StringBuilder();
+			System.out.println("RETORNA:");
+			while ( (mensajeRetorno=br.readLine())!=null){
+				retornoJson.append(mensajeRetorno);
+			}
+			
+			Gson otro = new Gson();
+			oct = otro.fromJson(retornoJson.toString(), ConsultaTecnica.class);
+			
+			System.out.println("SOLICITANTE REGISTRADO ->" + oct.getApellidos()+", "+oct.getNombres());
+			
+			httpClient.getConnectionManager().shutdown();
+
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return oct;
+	}
+	
 	public static void main(String[] args) throws ClientProtocolException, IOException{
 		
 		DefaultHttpClient httpClient = new DefaultHttpClient();
