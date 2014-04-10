@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Nueva Consulta</title>
+        <title>Nueva Consulta - DIGEMID</title>
     </head>
     <body>
     <%
@@ -22,6 +22,8 @@
 		}
     %>
     <%=clasi %>
+    <h1>PORTAL VIA DIGEMID</h1>
+    <h2>CONSULTA TÉCNICA</h2>
     <form action="ConsultaTecnicaServlet" method="post">
     <table>
     <tr>

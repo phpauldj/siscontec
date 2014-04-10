@@ -32,7 +32,7 @@ public class EstadoCTDAO extends BaseDAO {
 			if (rs.next()) {
 				vo.setId_EstadoCT(rs.getInt("Id_EstadoCT"));
 				vo.setDescripcion(rs.getString("Descripcion"));
-				vo.setEliminado(rs.getInt("Eliminado"));
+				vo.setEliminado(rs.getInt("Elimado"));
 				vo.setFechaHoraRegistro(rs.getInt("FechaHoraRegistro"));
 				vo.setFechaHoraModificacion(rs.getInt("FechaHoraModificacion"));
 				vo.setUsuarioRegistro(rs.getString("UsuarioRegistro"));

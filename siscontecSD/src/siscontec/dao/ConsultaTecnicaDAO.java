@@ -31,10 +31,12 @@ public class ConsultaTecnicaDAO extends BaseDAO {
 		try {
 			String query = "select * from Tt_ConsultaTecnica where Id_ConsultaTecnica= ?";
 			con = ConexionBD.obtenerConexion();
-			stmt = con.prepareStatement(query);
-			stmt.setInt(1, idConsultaTecnica);
-			rs = stmt.executeQuery();
-			if (rs.next()) {
+			if (con!=null) {
+				stmt = con.prepareStatement(query);
+				stmt.setInt(1, idConsultaTecnica);
+				rs = stmt.executeQuery();
+			}
+			if (rs != null && rs.next()) {
 				vo.setId_ConsultaTecnica(rs.getInt("Id_ConsultaTecnica"));
 				vo.setInstitucion(rs.getString("Institucion"));
 				vo.setCodigo_Vuce(rs.getString("Codigo_Vuce"));
@@ -109,7 +111,7 @@ public class ConsultaTecnicaDAO extends BaseDAO {
 				vo.setId_Transmision(rs.getInt("Id_Transmision"));				
 			}
 		} catch (SQLException e) {
-			System.err.println(e.getMessage());
+			//System.err.println(e.getMessage());
 			throw new DAOExcepcion(e.getMessage());
 		} finally {
 			this.cerrarResultSet(rs);
@@ -119,6 +121,7 @@ public class ConsultaTecnicaDAO extends BaseDAO {
 		return vo;
 	}
 	
+	@SuppressWarnings("resource")
 	public ConsultaTecnica registrarConsultaTecnica(ConsultaTecnica ct) throws DAOExcepcion{
 		String query = "insert into Tt_ConsultaTecnica(Institucion, Area, Apellidos, Nombres, Telefono, Fax, Id_Tipo, Email, Id_TipoSolicitante," +
 						"Id_MotivoConsulta, Id_TipoInstitucion, Id_MedioConsulta, Id_Clasificacion, Descripcion, DNI, RUC,"+ 
@@ -164,7 +167,7 @@ public class ConsultaTecnicaDAO extends BaseDAO {
 			ct.setId_ConsultaTecnica(id);
 			
 		} catch (SQLException e) {
-			System.err.println(e.getMessage());
+			//System.err.println(e.getMessage());
 			throw new DAOExcepcion(e.getMessage());
 		} finally {
 			this.cerrarResultSet(rs);

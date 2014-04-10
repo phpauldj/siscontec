@@ -17,7 +17,7 @@ import siscontec.negocio.GestionConsultasTecnicas;
  *
  */
 
-@Path("/consultaTecnica")
+@Path("/rest")
 public class ServicioRestConsultaTecnica {
 
 	@GET
@@ -28,7 +28,7 @@ public class ServicioRestConsultaTecnica {
 	}
 	
 	@POST
-	@Path("/register")
+	@Path("/registrar-consulta")
 	@Consumes("application/json")
 	public Response registrarConsultaTecnica(ConsultaTecnica ct) throws DAOExcepcion{
 		
@@ -39,7 +39,7 @@ public class ServicioRestConsultaTecnica {
 	}
 	
 	@GET
-	@Path("/consultaTecnicaJson")
+	@Path("/obtener-consulta-json")
 	@Produces("application/json")
 	public ConsultaTecnica obtenerConsuTecnica() throws DAOExcepcion{
 		
