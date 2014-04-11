@@ -7,6 +7,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -78,60 +79,21 @@ public class ConsultasTecnicasRest {
 		return oct;
 	}
 	
-	public static void main(String[] args) throws ClientProtocolException, IOException{
-		
+	public ArrayList<ConsultaTecnica> listarCTRestBySoli(String idSolicitante) throws ClientProtocolException, IOException{
 		DefaultHttpClient httpClient = new DefaultHttpClient();
 		HttpPost post = new HttpPost(
-				"http://localhost:8080/siscontecSD/digemid/rest/registrar-consulta");
+				"http://localhost:8080/siscontecSD/digemid/solicitante/lista-consultas-tecnicas");
 		
-		ConsultaTecnica objc = new ConsultaTecnica();
+		//Gson gson = new Gson();
+		//ConsultaTecnica oct = null;
 		
-		Clasificacion clasificacion = new Clasificacion();
-		clasificacion.setId_Clasificacion(1);
+		//String input = gson.toJson(ct);
+		//System.out.println("ENVIA ->" + input);
+		ArrayList<ConsultaTecnica> lista = null;
 		
-		Tipo tipo = new Tipo();
-		tipo.setId_Tipo(1);
-		
-		MotivoConsulta motivo = new MotivoConsulta();
-		motivo.setId_MotivoConsulta(1);
-		
-		TipoInstitucion tipoInsti = new TipoInstitucion();
-		tipoInsti.setId_TipoInstitucion(1);
-	
-		TipoSolicitante tipoSoli = new TipoSolicitante();
-		tipoSoli.setId_TipoSolicitante(4);
-		
-		MedioConsulta medio = new MedioConsulta();
-		medio.setId_MedioConsulta(1);
-		
-		objc.setId_Clasificacion(clasificacion);
-		objc.setId_Tipo(tipo);
-		objc.setId_MotivoConsulta(motivo);
-		objc.setId_TipoInstitucion(tipoInsti);
-		objc.setDescripcion("Example Two");
-		objc.setArea("AREA 2");
-		objc.setId_TipoSolicitante(tipoSoli);
-		objc.setApellidos("Montenegro");
-		objc.setNombres("Juan Pablo");
-		objc.setDNI("32445433");
-		objc.setRUC("10234567894");
-		objc.setTelefono("789-3273");
-		objc.setFax("2224324554");
-		objc.setEmail("juan.montenegro@gmail.com");
-		objc.setId_MedioConsulta(medio);
-		objc.setDescripcion("Alguna descripcion en la consulta");
-		
-		Gson gson = new Gson();
-		
-		String input = gson.toJson(objc);
-		System.out.println("ENVIA ->" + input);
-		
-		//String input = "{\"userId\":\"100\"}";
-		
-		//System.out.println(input);
 		try {
 			
-			StringEntity inputJson = new StringEntity(input);
+			StringEntity inputJson = new StringEntity(idSolicitante);
 			inputJson.setContentType("application/json");
 			post.setEntity(inputJson);
 
@@ -153,10 +115,9 @@ public class ConsultasTecnicasRest {
 			}
 			
 			Gson otro = new Gson();
+			lista = otro.fromJson(retornoJson.toString(), ArrayList.class);
 			
-			ConsultaTecnica oct = otro.fromJson(retornoJson.toString(), ConsultaTecnica.class);
-			
-			System.out.println("SOLICITANTE REGISTRADO ->" + oct.getApellidos()+", "+oct.getNombres());
+			//System.out.println("SOLICITANTE REGISTRADO ->" + oct.getApellidos()+", "+oct.getNombres());
 			
 			httpClient.getConnectionManager().shutdown();
 
@@ -164,5 +125,6 @@ public class ConsultasTecnicasRest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return lista;
 	}
 }

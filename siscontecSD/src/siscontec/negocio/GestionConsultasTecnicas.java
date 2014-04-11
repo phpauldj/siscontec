@@ -3,6 +3,8 @@
  */
 package siscontec.negocio;
 
+import java.util.ArrayList;
+
 import siscontec.dao.ConsultaTecnicaDAO;
 import siscontec.excepcion.DAOExcepcion;
 import siscontec.modelo.Clasificacion;
@@ -55,5 +57,10 @@ public class GestionConsultasTecnicas {
 	public ConsultaTecnica obtener(int id) throws DAOExcepcion {
 		ConsultaTecnicaDAO dao = new ConsultaTecnicaDAO();
 		return dao.obtener(id);
+	}
+	
+	public ArrayList<ConsultaTecnica> obtenerConsultasBySoli(String idSolicitante) throws DAOExcepcion {
+		ConsultaTecnicaDAO dao = new ConsultaTecnicaDAO();
+		return dao.obtenerBySolicitante(idSolicitante);
 	}
 }
